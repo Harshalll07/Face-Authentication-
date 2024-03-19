@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    "E:\harshal\img\Bank2.jpg"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>Document</title>
+    <style>
+    body{
+       
+        background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/img/Bank2.jpg);
+        background-position: center;
+        background-size: cover;
+        display: -moz-inline-grid;
+        }
+.box-area {
+    margin-bottom: 50px; /* Reduce margin */
+    border: 2px solid white;
+    border-radius: 15px; /* Decrease border radius */
+    background: rgba(255, 255, 255, 0.2); /* Adjust background transparency */
+    backdrop-filter: blur(10px); /* Reduce backdrop blur */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Adjust box shadow */
+    transform: translateY(10%); /* Decrease translation */
+    position: relative;
+    width: 400px; /* Reduce width */
+    max-width: 90%; /* Set maximum width */
+    padding: 20px; /* Increase padding */
+    margin: auto; /* Center horizontally */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.mb-3{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.mb-3 label{
+color: white;
+padding: 3px;
+}
+.mb-3 input{
+    background: transparent;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+.mb-3 input::placeholder{
+    color: rgba(255, 255, 255, 0.3);
+}
+.mb-3 input:focus{
+    background: transparent;
+    color: white;
+}
+.form-check label{
+    color: white;
+}
+.m1{
+    display: flex;
+    /* display:inline-block;
+    width: 48; */
+
+}
+.btn-primary{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    transform: translateX(-10px);
+}
+</style>
+</head>
+<body>
+<video id="video" width="720" height="560" autoplay muted></video>
+    <canvas id="canvas" width="720" height="560"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection"></script>
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+    <script src="script.js"></script>
+
+    
+    <div class="container d-flex shadow box-area">
+        <form action="SignUp.php" method="post">
+            <br>
+            <h3>Sign Up</h3>
+            <br>
+            <div class=" m1">
+            <div class="mb-3 justify-content-center align-items-center">
+                <label for="" class="form-label">Account number</label>
+                <input type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="AccountNumber"
+                    required>
+            </div>
+            <div class="mb-3 justify-content-center align-items-center">
+                <label for="" class="form-label">Account Name</label>
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="AccountName"
+                            required>
+            </div>
+        </div>
+        <div class=" m1">
+            <div class="mb-3 justify-content-center align-items-center">
+                <label for="" class="form-label">Mobile Number</label>
+                <input type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Mobile Number"
+                    required>
+            </div>
+            <div class="mb-3 justify-content-center align-items-center">
+                <label for="" class="form-label">Email Id</label> 
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Email"
+                    required>
+            </div>
+            </div>
+            <div class=" m1">
+            <div class="mb-3 justify-content-center align-items-center">
+                <label for="" class="form-label">Username</label>
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Username"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" class="form-control" name="" id="" placeholder="Password">
+            </div>
+            </div>
+            <div class=" m1"></div>
+            <div class="mb-3">
+                <label for="" class="form-label">Cornfirm password</label>
+                <input type="password" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Password"
+                    required>
+                </div>
+                    
+            <div class="form-check">   
+                <input class="form-check-input" type="checkbox" value="Remember" id="rem">
+                <label class="form-check-label" for="Remember">Remember Me</label>
+            </div>
+
+            <a name="" id="" class="btn btn-primary" href="C:\Users\Rushikesh jadhav\Downloads\face\index.html" role="button">Submit</a>
+            <a href="C:\Users\Rushikesh jadhav\Downloads\face\index.html" style="float: left;">Forgot Password</a>
+        </div>
+        </form>
+    
+    <!-- <script src="bootstrap.bundle.js">
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+async function startVideo() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+        video.srcObject = stream;
+    } catch (err) {
+        console.error('Error accessing the camera: ', err);
+    }
+}
+
+video.addEventListener('play', async () => {
+    const faceModel = await faceapi.faceLandmarkDetection.load(
+        faceapi.FaceLandmarks68Net
+    );
+
+    setInterval(async () => {
+        const detections = await faceapi.detectAllFaces(video).withFaceLandmarks();
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        detections.forEach(detection => {
+            const box = detection.detection.box;
+            const landmarks = detection.landmarks;
+
+            context.beginPath();
+            context.rect(box.x, box.y, box.width, box.height);
+            context.lineWidth = 2;
+            context.strokeStyle = 'red';
+            context.stroke();
+
+            landmarks.positions.forEach(pos => {
+                context.beginPath();
+                context.arc(pos.x, pos.y, 3, 0, 2 * Math.PI);
+                context.fillStyle = 'blue';
+                context.fill();
+            });
+        });
+    }, 100);
+});
+
+startVideo();
+
+    </script> -->
+    
+</body>
+</html>

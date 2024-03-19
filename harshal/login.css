@@ -1,0 +1,53 @@
+
+body{
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(img/login.jpg);
+background-position: center;
+background-size: cover;
+}
+.box-area{
+border: 2px solid white;
+border-radius: 25px;
+background:rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(20px);
+box-shadow: rgba(255, 255, 255, 0.1);
+transform: translateY(30%);
+position: relative;
+width: 24%;
+}
+h3{
+    font-family: sans-serif;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+}
+.mb-3{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.mb-3 label{
+color: white;
+padding: 3px;
+}
+.mb-3 input{
+    background: transparent;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+.mb-3 input::placeholder{
+    color: rgba(255, 255, 255, 0.3);
+}
+.mb-3 input:focus{
+    background: transparent;
+    color: white;
+}
+.form-check label{
+    color: white;
+}
+.btn-primary{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    transform: translateX(-10px);
+}
