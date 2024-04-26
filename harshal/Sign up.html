@@ -118,12 +118,21 @@ padding: 3px;
                 <input type="password" class="form-control" name="" id="" placeholder="Password">
             </div>
             </div>
-            <div class=" m1"></div>
+            <div class=" m1">
             <div class="mb-3">
                 <label for="" class="form-label">Cornfirm password</label>
                 <input type="password" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Password"
                     required>
                 </div>
+                </div>
+            
+             <div class="captcha-container">
+                    <h2>Verify Your Humanity</h2>
+                    <div class="captcha-puzzle" id="captcha-puzzle">Puzzle Here</div>
+                    <canvas id="captcha-canvas" width="300" height="150"></canvas>
+                    <button id="verify-button">Verify</button>
+                  </div>
+                  <script src="script.js"></script>
                     
             <div class="form-check">   
                 <input class="form-check-input" type="checkbox" value="Remember" id="rem">
